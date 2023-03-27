@@ -1,0 +1,68 @@
+{   
+   "id": "w15ps-compendia",   
+   "title": "w15p's Compendia of Useful Things™",   
+   "description": "So I don't have to keep creating this shit",   
+   "authors": [
+    {
+    "name": "w15p",
+    "discord": "w15p#3273"
+    }
+   ],
+   "version": "0.1.0",
+   "compatibility": {
+    "verified": "10.291"
+   },
+   "system": [
+    "dnd5e"
+   ],
+   "scripts": [
+    "./scripts/spells/magic_missile.js",
+    "./scripts/items/wand.js"
+   ],
+   "packs": [
+    {
+        "name": "w15ps-grimoire",
+        "label": "w15p's Grimoire",
+        "system": "dnd5e",
+        "path": "./packs/w15ps-grimoire.db",
+        "type": "Item"
+    },
+    {
+        "name": "w15ps-wares",
+        "label": "w15p's Wares",
+        "system": "dnd5e",
+        "path": "./packs/w15ps-wares.db",
+        "type": "Item"
+    },
+    {
+        "name": "w15ps-talents-and-feats",
+        "label": "w15p's Talents and Feats",
+        "system": "dnd5e",
+        "path": "./packs/w15ps-talents-and-feats.db",
+        "type": "Item"
+    }
+   ],
+   "relationships": {
+    "requires": [{
+      "id": "midi-qol",
+      "type": "module",
+      "compatibility": {
+        "verified": "10.0.32"
+      }
+    },
+    {
+      "id": "tokenmagic",
+      "type": "module",
+      "compatibility": {
+        "verified": "10.0.32"
+      }
+    },
+    {
+      "id": "sequencer",
+      "type": "module",
+      "compatibility": {
+        "verified": "2.412"
+      }
+    }]
+  }
+ }
