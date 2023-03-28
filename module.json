@@ -65,6 +65,13 @@
       }
     },
     {
+      "id": "tokenmagic",
+      "type": "module",
+      "compatibility": {
+        "verified": "0.6.1.2"
+      }
+    },
+    {
       "id": "sequencer",
       "type": "module",
       "compatibility": {
