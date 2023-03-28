@@ -1,7 +1,7 @@
 {   
    "id": "w15ps-compendia",   
    "title": "w15p's Compendia of Useful Things™",   
-   "description": "So I don't have to keep creating this shit",   
+   "description": "A simple module that I'm using to both slowly customize things to my liking and to learn more about the foundry platform. Currently very much a work in progress but functional.",   
    "authors": [
     {
     "name": "w15p",
@@ -51,10 +51,17 @@
       }
     },
     {
-      "id": "tokenmagic",
+      "id": "JB2A_DnD5eenmagic",
       "type": "module",
       "compatibility": {
-        "verified": "10.0.32"
+        "verified": "0.5.5.01"
+      }
+    },
+    {
+      "id": "itemacro",
+      "type": "module",
+      "compatibility": {
+        "verified": "1.8.0"
       }
     },
     {

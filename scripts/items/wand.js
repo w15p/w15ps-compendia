@@ -56,4 +56,4 @@ class Wand {
     }
 }
 
-Hooks.on("ready", () => Wand);
+Hooks.once("ready", () => Wand);

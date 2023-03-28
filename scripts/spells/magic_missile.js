@@ -40,4 +40,4 @@ class MagicMissile {
     }
 }
 
-Hooks.on("ready", () => MagicMissile);
+Hooks.once("ready", () => MagicMissile);
