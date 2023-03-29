@@ -15,9 +15,8 @@
    "system": [
     "dnd5e"
    ],
-   "scripts": [
-    "./scripts/spells/magic_missile.js",
-    "./scripts/items/wand.js"
+   "esmodules": [
+    "./scripts/w15ps.mjs"
    ],
    "packs": [
     {

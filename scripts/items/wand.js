@@ -2,7 +2,7 @@
 // including @thatlonelybugbear#4393 and @Chris#8375, among others
 /////
 
-class Wand {
+export class Wand {
     static suppressDialog(onUseWorkflow) {
         onUseWorkflow.config.consumeUsage = false;
         onUseWorkflow.config.needsConfiguration = false;
@@ -55,5 +55,3 @@ class Wand {
         await chatMessage.update({content: content});
     }
 }
-
-Hooks.once("ready", () => Wand);

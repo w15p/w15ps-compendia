@@ -1,7 +1,7 @@
 // extended from the magic missile sequencer example at https://wasp0r.itch.io/sequencer
 /////
 
-class MagicMissile {
+export class MagicMissile {
     static #magicMissileEffect(number, target) {
         return new Sequence()
         .effect()
@@ -39,5 +39,3 @@ class MagicMissile {
         onUseWorkflow.damageList.forEach(t => t.newHP = t.oldHP - t.appliedDamage);
     }
 }
-
-Hooks.once("ready", () => MagicMissile);
