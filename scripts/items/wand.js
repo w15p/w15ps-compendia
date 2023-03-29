@@ -18,13 +18,13 @@ export class Wand {
                 new Dialog({
                     title : `${onUseWorkflow.item.name}` , 
                     content,
-                    buttons: Array.fromRange(charges+1).map(i=>({label: i.toString(), callback: (html) => {
+                    buttons: Array.fromRange(charges).map(i=>({label: (i+1).toString(), callback: (html) => {
                         resolve(i);               
                     }}))
                 }).render(true);
             })
         }
-        const castLevel = await dialogAsync();
+        const castLevel = await dialogAsync()+1;
         if(!castLevel) return {};
         onUseWorkflow.castData.castLevel = castLevel;
         await onUseWorkflow.item.update({"system.uses.value": charges - castLevel});
