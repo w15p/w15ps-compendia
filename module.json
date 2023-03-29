@@ -9,6 +9,7 @@
     }
    ],
    "version": "0.1.1",
+   "download": "https://github.com/w15p/w15ps-compendia/releases/latest/module.zip",
    "compatibility": {
     "verified": "10.291"
    },
