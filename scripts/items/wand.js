@@ -44,7 +44,8 @@ export class Wand {
                 await onUseWorkflow.item.delete();
             }
         } else {
-            wandFlavor = `using ${onUseWorkflow.castData.castLevel} charge of the ${onUseWorkflow.item.name}`
+            const plural = onUseWorkflow.castData.castLevel > 1 ? 's' : '';
+            wandFlavor = `using ${onUseWorkflow.castData.castLevel} charge${plural} of the ${onUseWorkflow.item.name}`;
         }
 
         const chatMessage = game.messages.get(onUseWorkflow.itemCardId);

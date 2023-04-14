@@ -1,15 +1,33 @@
-import {Wand} from "./items/wand.js";
-import {MagicMissile} from "./spells/magic_missile.js";
+const module = 'w15ps-compendia';
+const packs = [
+  'w15ps-grimoire',
+  'w15ps-talents-and-feats'
+];
 
-function setupW15ps() {
-  // check for existence of W15ps namespace to reuse or create otherwise
-  globalThis.W15ps = globalThis.W15ps !== undefined ? globalThis.W15ps : {};
-  const w15ps = globalThis.W15ps; // for simpler reference
-  w15ps.Wand = Wand;
-  w15ps.MagicMissile = MagicMissile;
-  console.log("%cw15ps-compendia %c| Initialized \n - W15ps registered", "color: #2e5a88; font-weight: bold", "color: #333333; font-weight: normal");
+async function combineCompendia(pack) {
+  let source = game.packs.get(`${module}.${pack}`);
+  let target = game.packs.get(`w15ps-srd.${pack}`);
+  // unlock target
+  await target.configure({locked: false});
+  // import contents
+  for (const [k, v] of source.index.entries()) {
+    if (target.index.filter(d => d.name === v.name).length === 0) { // check if item has already been imported
+      await target.importDocument(await source.getDocument(k));
+    }
+  }
+  // relock target
+  await target.configure({locked: true});
+  console.log(`%c${module}.${pack} has been merged with w15ps-srd.${pack}`, "color: #2e5a88;");
 }
 
-Hooks.once("ready", () => {
-	setupW15ps();
+Hooks.once('ready', async () => {
+  packs.forEach(async pack => {
+    await combineCompendia(pack);
+  });
+});
+
+Hooks.on('renderCompendiumDirectory', (app, html, options) => {
+  packs.forEach(pack => {
+    html.find(`li[data-pack="${module}.${pack}"]`).remove()
+  });
 });

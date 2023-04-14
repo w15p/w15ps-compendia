@@ -1,17 +1,15 @@
 # w15ps-compendia
 
-A simple module that I'm using to both _slowly_ customize things to my liking and to learn more about the foundry platform. Currently very much a work in progress but functional.
+An extension of w15ps-srd. Items are merged into the w15ps-srd compendia on load.
 
 __Compendia__
 
 w15p' Grimoire:
-- a small selection of spells
+- Booming Blade
 
 w15p's Talents and Feats:
-- a small selection of features and feats
-
-w15p's Wares:
-- a small selection of items
+- Savage Attacker (and automatic trigger)
+- Sneak Attack (and automatic trigger)
 
 __Scripts__
 
