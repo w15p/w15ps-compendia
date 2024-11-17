@@ -1,51 +1,111 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
-  "library": "false",
-  "manifestPlusVersion": "1.2.0",
-  "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
-  },
+  "id": "w15ps-compendia",
+  "title": "w15p's Automation Compendia",
+  "description": "A small set of automations and customizations built largely against CPR and Midi QOL",
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "w15p",
+      "discord": "w15p."
+    }
+  ],
+  "version": "0.12.0",
+  "url": "https://github.com/w15p/w15ps-compendia",
+  "download": "https://github.com/w15p/w15ps-compendia/releases/latest/download/module.zip",
+  "compatibility": {
+    "verified": "12.331"
+  },
+  "esmodules": [
+    "./scripts/w15ps.mjs"
+  ],
+  "packs": [
+    {
+      "name": "w15ps-grimoire",
+      "label": "w15p's Grimoire",
+      "path": "./packs/w15ps-grimoire",
+      "type": "Item"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "w15p's Automation Compendia",
+      "sorting": "a",
+      "color": "#2e5a88",
+      "packs": [
+        "w15ps-grimoire",
+        "w15ps-incantations"
+      ]
     }
   ],
   "relationships": {
-    "systems": [],
-    "requires": []
-  },
-  "esmodules": [
-    "scripts/module.js"
-  ],
-  "scripts": [
-    "scripts/lib/lib.js"
-  ],
-  "styles": [
-    "styles/module.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
-  "readme": "README.md",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "3.3.1",
+          "verified": "3.3.1",
+          "maximum": "3.9.9"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "chris-premades",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.0.39",
+          "verified": "1.0.39"
+        }
+      },
+      {
+        "id": "dae",
+        "type": "module",
+        "compatibility": {
+          "verified": "11.3.65"
+        }
+      },
+      {
+        "id": "animated-spell-effects-cartoon",
+        "type": "module",
+        "compatibility": {
+          "verified": "0.4.6"
+        }
+      },
+      {
+        "id": "jb2a_patreon",
+        "type": "module",
+        "compatibility": {
+          "verified": "0.7.2"
+        }
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {
+          "verified": "1.13.2.0"
+        }
+      },
+      {
+        "id": "midi-qol",
+        "type": "module",
+        "compatibility": {
+          "verified": "11.6.25.1"
+        }
+      },
+      {
+        "id": "sequencer",
+        "type": "module",
+        "compatibility": {
+          "verified": "3.4.3"
+        }
+      },
+      {
+        "id": "socketlib",
+        "type": "module",
+        "compatibility": {
+          "verified": "1.1.0"
+        }
+      }
+    ]
+  }
 }
