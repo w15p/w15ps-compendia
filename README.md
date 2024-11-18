@@ -18,7 +18,7 @@ __Paladin__
 **Lay on Hands** *(minor change to 2024 rules from CPR)*
 
 __Rogue__
-**Cunning Strike (SNeak Attack)** *(Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack)*
+**Cunning Strike (Sneak Attack)** *(Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack)*
 
 __Warlock__
 **Lifedrinker**
