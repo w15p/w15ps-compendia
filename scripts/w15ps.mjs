@@ -23,19 +23,15 @@ async function setupW15ps() {
     await game.settings.set('chris-premades', 'additionalCompendiums', cprCompendiums);
   }
 
-  //w15ps.changeSeason = changeSeason;
-  //w15ps.Wand = Wand;
-  //w15ps.MagicMissile = MagicMissile;
-  //w15ps.FaerieFire = FaerieFire;
-  //FaerieFire.addEffect();
+  //w15ps.changeSeason = changeSeason; // possible future use
   console.log("%cw15ps-compendia %c| Initialized \n - W15ps registered", "color: #2e5a88; font-weight: bold", "color: #333333; font-weight: normal");
 }
 
 export class W15psConfig {
   static module = 'w15ps-compendia';
   static packs = [
-    'w15ps-incantations',
-    'w15ps-grimoire'
+    'w15ps-grimoire',
+    'w15ps-wares'
   ];
 }
 

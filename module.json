@@ -23,6 +23,12 @@
       "label": "w15p's Grimoire",
       "path": "./packs/w15ps-grimoire",
       "type": "Item"
+    },
+    {
+      "name": "w15ps-wares",
+      "label": "w15p's Wares",
+      "path": "./packs/w15ps-wares",
+      "type": "Item"
     }
   ],
   "packFolders": [
@@ -32,7 +38,7 @@
       "color": "#2e5a88",
       "packs": [
         "w15ps-grimoire",
-        "w15ps-incantations"
+        "w15ps-wares"
       ]
     }
   ],
