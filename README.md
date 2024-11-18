@@ -22,6 +22,7 @@ __Rogue__
 
 __Warlock__
 **Lifedrinker**
+
 **Pact of the Tome - Book of Shadows** *(early wip)*
 
 __Warlock (ArchFey)__
