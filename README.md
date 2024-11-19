@@ -1,33 +1,37 @@
 # w15ps-compendia (w15p's Automation Compendia)
-Wherever possible, 2024 rules have been leveraged. Current automations are limited to:
+Wherever possible, 2024 rules have been leveraged. Bolded items are fully functional, wip items
 
 ## Species Features:
-__Eladrin__
+### Eladrin
 **Change Season**
 * optionally trigger on Long Rest
-* disabling seasons in configuration *(wip)*
+* optionally disable seasons in configuration
 * optionally including swapping out a weapon as part of the season change *(wip)*
-**Fey Step** *(minor changes against CPR)*
-**Trance** *(wip)*
+
+**Fey Step** *(minor changes against CPR)*  
+Trance *(wip)*  
 
 ## Class Features:
-__Fighter__
-**Tactical Master** *(wip)*
+### Fighter
+Tactical Master *(wip)*
 
-__Paladin__
+### Paladin
 **Lay on Hands** *(minor change to 2024 rules from CPR)*
 
-__Rogue__
-**Cunning Strike (Sneak Attack)** *(Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack)*
+### Rogue
+**Cunning Strike**[^1]
 
-__Warlock__
-**Lifedrinker**
+### Warlock
+**Lifedrinker**  
+Pact of the Tome - Book of Shadows *(early wip)*
 
-**Pact of the Tome - Book of Shadows** *(early wip)*
-
-__Warlock (ArchFey)__
+### Warlock (ArchFey)
 **Steps of the Fey**
 
 ## Generic Features:
-__Weapon Mastery__
-**Graze** *(implemented as a midi onUse macro)*
+### Weapon Mastery
+**Graze**
+* implemented as a midi onUse macro
+* example weapon (Glaive) included in w15p's Wares
+
+[^1]: Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack (https://discord.com/channels/915186263609454632/1285655740886941789)
