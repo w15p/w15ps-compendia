@@ -1,5 +1,5 @@
 # w15ps-compendia (w15p's Automation Compendia)
-Wherever possible, 2024 rules have been leveraged. Bolded items are fully functional, wip items
+A small set of automations levaraging Midi-QOL. *Wherever possible, 2024 rules have been leveraged.*
 
 ## Generic Features:
 ### Tactical Master (requires PHB)
