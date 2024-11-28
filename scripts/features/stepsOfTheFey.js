@@ -1,7 +1,6 @@
 const { DialogApp, Crosshairs, Summons, Teleport, utils: { actorUtils, animationUtils, combatUtils, compendiumUtils, constants, crosshairUtils, dialogUtils, effectUtils, errors, genericUtils, itemUtils, rollUtils, socketUtils, templateUtils, tokenUtils, workflowUtils, spellUtils, regionUtils } } = chrisPremades;
 
 async function use({ workflow }) {
-  console.clear();
   if (workflow.actor.items.find(c => c.system.identifier === 'warlock').system.levels < 3 ||
     !workflow.actor.items.find(c => c.system.identifier === 'the-archfey')) return;
   let buttons = new Array();
@@ -20,27 +19,32 @@ async function use({ workflow }) {
         animation,
         range: 30
       });
-      let nearbyTargets = tokenUtils.findNearby(workflow.token, 10).filter(i => tokenUtils.canSee(workflow.token, i));
+      let nearbyTargets = tokenUtils.findNearby(workflow.token, 10, { incldueIncapacitated: false, includeToken: false }).filter(i => tokenUtils.canSee(workflow.token, i));
       nearbyTargets.push(workflow.token);
       let target;
       if (!nearbyTargets.length) return;
       if (nearbyTargets.length > 1) {
-        [[target]] = await dialogUtils.selectTargetDialog(workflow.item.name + '(Refreshing Step)', genericUtils.format('Select a target to refresh', { max: 1 }), nearbyTargets, {
-          type: 'multiple'//,
-          //maxAmount: 1
+        [[target]] = await dialogUtils.selectTargetDialog(workflow.item.name + ' (Refreshing Step)', genericUtils.format('Select a target to refresh', { max: 1 }), nearbyTargets, {
+          type: 'multiple'
         });
       }
       genericUtils.update(target.actor, { "system.attributes.hp.temp": 10 })
       break;
     }
-
     case 'taunting': {
       let featureData = await compendiumUtils.getItemFromCompendium('world.w15ps-grimoire', 'Steps of the Fey (Taunting Step)',
         { object: true });
-      await workflowUtils.syntheticItemDataRoll(featureData, workflow.actor, [], { killAnim: true });
-      let nearbyTargets = tokenUtils.findNearby(workflow.token, 5, { includeIncapacitated: false, includeToken: true });
+      // configuration check for applying to friendly tokens
+      let nearbyTargets = tokenUtils.findNearby(workflow.token, 5, (!itemUtils.getConfig(workflow.item, 'tauntFriends')) ? 'enemy' : null, { includeIncapacitated: false, includeToken: false });
+      let workflowReturn = await workflowUtils.syntheticItemDataRoll(featureData, workflow.actor, nearbyTargets, { killAnim: true });
+      //let workflowReturn = await workflowUtils.syntheticItemDataRoll(featureData, workflow.actor, [], { killAnim: true });
+      console.clear();
+      console.log('nearbyTargets:');
+      console.log(nearbyTargets);
+      console.log('workflowReturn.targets:');
+      console.log(workflowReturn.targets);
       let effectData = {
-        name: workflow.item.name + '(TauntingStep)',
+        name: workflow.item.name + ' (TauntingStep)',
         img: featureData.img,
         origin: workflow.item.uuid,
         duration: {
@@ -62,7 +66,6 @@ async function use({ workflow }) {
           }
         }
       };
-      console.log(nearbyTargets);
       await Promise.all(nearbyTargets.map(i => effectUtils.createEffect(i.actor, effectData)));
       await Teleport.target(workflow.token, workflow.token, { range: 30, animation });
       break;
@@ -90,6 +93,7 @@ async function use({ workflow }) {
       await effectUtils.createEffect(workflow.actor, effectData);
       break;
     }
+    // This applies to all creatures, friends and enemies alike (RAW)
     case 'dreadful': {
       let featureData = await compendiumUtils.getItemFromCompendium('world.w15ps-grimoire', 'Steps of the Fey (Dreadful Step)',
         { object: true });
@@ -150,6 +154,14 @@ export let stepsOfTheFey = {
       type: 'checkbox',
       default: true,
       category: 'animation'
+    },
+    {
+      value: 'tauntFriends',
+      label: 'Target friendly tokens with Taunting Step? (RAW)',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
+      type: 'checkbox',
+      default: true,
+      category: 'homebrew'
     }
   ]
 };

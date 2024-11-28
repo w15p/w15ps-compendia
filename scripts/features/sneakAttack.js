@@ -1,5 +1,6 @@
 /**
- * This is a reimplementation of #Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack https://discord.com/channels/915186263609454632/1285655740886941789
+ * This is a reimplementation of Christopher's MidiQOL #items-n-scripts-showcase 2024 Sneak Attack
+ * https://discord.com/channels/915186263609454632/1285655740886941789
  */
 
 const { DialogApp, Crosshairs, Summons, Teleport, utils: { actorUtils, animationUtils, combatUtils, compendiumUtils, constants, crosshairUtils, dialogUtils, effectUtils, errors, genericUtils, itemUtils, rollUtils, socketUtils, templateUtils, tokenUtils, workflowUtils, spellUtils, regionUtils } } = chrisPremades;

@@ -1,23 +1,34 @@
 const { DialogApp, Crosshairs, Summons, Teleport, utils: { actorUtils, animationUtils, combatUtils, compendiumUtils, constants, crosshairUtils, dialogUtils, effectUtils, errors, genericUtils, itemUtils, rollUtils, socketUtils, templateUtils, tokenUtils, workflowUtils, spellUtils, regionUtils } } = chrisPremades;
 
 async function rest({ trigger }) {
-  console.log("Change Season: rest triggered");
-  await trigger.entity.use();
+  if (itemUtils.getConfig(trigger.entity, 'restPrompt')) {
+    console.log("Change Season: rest triggered");
+    await trigger.entity.use();
+  }
 }
 
 async function use({ workflow }) {
 
+  // rethink this to be more generic
   let seasonWeapons = new Map();
   seasonWeapons.set('summer', 'glaive');
   seasonWeapons.set('winter', 'scythe');
 
   let currentSeason = workflow.item.flags['chris-premades']?.eladrin?.season;
-  let buttons = [
-    // ['CHRISPREMADES.Macros.ChangeSeason.Autumn', 'autumn', {image: 'icons/magic/nature/leaf-glow-maple-orange.webp'}],
-    ['CHRISPREMADES.Macros.ChangeSeason.Winter', 'winter', { image: 'icons/magic/air/wind-weather-snow-gusts.webp' }],
-    // ['CHRISPREMADES.Macros.ChangeSeason.Spring', 'spring', {image: 'icons/magic/nature/leaf-glow-triple-green.webp'}],
-    ['CHRISPREMADES.Macros.ChangeSeason.Summer', 'summer', { image: 'icons/magic/nature/symbol-sun-yellow.webp' }]
-  ];
+  let buttons = [];
+  // include conditional handling based on config
+  if (itemUtils.getConfig(workflow.item, 'autumnSeason'))
+    buttons.push(['CHRISPREMADES.Macros.ChangeSeason.Autumn', 'autumn', {image: 'icons/magic/nature/leaf-glow-maple-orange.webp'}]);
+  if (itemUtils.getConfig(workflow.item, 'winterSeason'))
+    buttons.push(['CHRISPREMADES.Macros.ChangeSeason.Winter', 'winter', {image: 'icons/magic/air/wind-weather-snow-gusts.webp'}]);
+  if (itemUtils.getConfig(workflow.item, 'springSeason'))
+    buttons.push(['CHRISPREMADES.Macros.ChangeSeason.Spring', 'spring', {image: 'icons/magic/nature/leaf-glow-triple-green.webp'}]);
+  if (itemUtils.getConfig(workflow.item, 'summerSeason'))
+    buttons.push(['CHRISPREMADES.Macros.ChangeSeason.Summer', 'summer', {image: 'icons/magic/nature/symbol-sun-yellow.webp'}]);
+  if (!buttons.length) {
+    console.log('No seasons configured!');
+    return;
+  }
   let currIdx = buttons.findIndex(i => i[1] === currentSeason);
   if (currIdx >= 0) buttons.splice(currIdx, 1);
   let season = await dialogUtils.buttonDialog(workflow.item.name, 'CHRISPREMADES.Macros.ChangeSeason.Select', buttons);
@@ -67,9 +78,41 @@ export let changeSeason = {
   },
   config: [
     {
+      value: 'restPrompt',
+      label: 'Prompt for season change at long rest?',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
+      type: 'checkbox',
+      default: false,
+      category: 'homebrew'
+    },
+    {
       value: 'autumnSeason',
       label: 'Include Autumn in season choices?',
-      i18nOption: 'CHRISPREMADES.Macros.FeyTrance',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
+      type: 'checkbox',
+      default: true,
+      category: 'homebrew'
+    },
+    {
+      value: 'winterSeason',
+      label: 'Include Winter in season choices?',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
+      type: 'checkbox',
+      default: true,
+      category: 'homebrew'
+    },
+    {
+      value: 'springSeason',
+      label: 'Include Spring in season choices?',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
+      type: 'checkbox',
+      default: true,
+      category: 'homebrew'
+    },
+    {
+      value: 'summerSeason',
+      label: 'Include Summer in season choices?',
+      i18nOption: 'CHRISPREMADES.Macros.ChangeSeason.Autumn',
       type: 'checkbox',
       default: true,
       category: 'homebrew'

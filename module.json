@@ -8,7 +8,7 @@
       "discord": "w15p."
     }
   ],
-  "version": "0.12.0",
+  "version": "12.4.0",
   "url": "https://github.com/w15p/w15ps-compendia",
   "download": "https://github.com/w15p/w15ps-compendia/releases/latest/download/module.zip",
   "compatibility": {
@@ -48,26 +48,25 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "minimum": "3.3.1",
-          "verified": "3.3.1",
-          "maximum": "3.9.9"
+          "minimum": "4.1.1",
+          "verified": "4.1.1"
         }
       }
     ],
     "requires": [
       {
-        "id": "chris-premades",
+        "id": "dnd-players-handbook",
         "type": "module",
         "compatibility": {
-          "minimum": "1.0.39",
-          "verified": "1.0.39"
+          "minimum": "1.2.0",
+          "verified": "1.2.0"
         }
       },
       {
         "id": "dae",
         "type": "module",
         "compatibility": {
-          "verified": "11.3.65"
+          "verified": "12.0.3"
         }
       },
       {
@@ -75,13 +74,6 @@
         "type": "module",
         "compatibility": {
           "verified": "0.4.6"
-        }
-      },
-      {
-        "id": "jb2a_patreon",
-        "type": "module",
-        "compatibility": {
-          "verified": "0.7.2"
         }
       },
       {
@@ -95,7 +87,7 @@
         "id": "midi-qol",
         "type": "module",
         "compatibility": {
-          "verified": "11.6.25.1"
+          "verified": "12.4.11.2"
         }
       },
       {
