@@ -8,7 +8,7 @@
       "discord": "w15p."
     }
   ],
-  "version": "12.4.1",
+  "version": "12.4.2",
   "url": "https://github.com/w15p/w15ps-compendia",
   "download": "https://github.com/w15p/w15ps-compendia/releases/latest/download/module.zip",
   "compatibility": {
@@ -16,6 +16,9 @@
   },
   "esmodules": [
     "./scripts/w15ps.mjs"
+  ],
+  "styles": [
+    "styles/w15ps.css"
   ],
   "packs": [
     {
@@ -49,7 +52,7 @@
         "type": "system",
         "compatibility": {
           "minimum": "4.1.1",
-          "verified": "4.1.1"
+          "verified": "4.1.2"
         }
       }
     ],
@@ -87,7 +90,7 @@
         "id": "midi-qol",
         "type": "module",
         "compatibility": {
-          "verified": "12.4.11.2"
+          "verified": "12.4.12"
         }
       },
       {

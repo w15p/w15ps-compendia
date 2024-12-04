@@ -1,5 +1,7 @@
 export async function tacticalMaster(workflow) {
+  // review workflow.item.system.masteryOptions
   if (!game.settings.get('w15ps-compendia', 'tactical_master_config') ||
+    workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') ||
     !(workflow.actor.system.traits.weaponProf.mastery.value.has(workflow.item.system.identifier) ||
       workflow.actor.system.traits.weaponProf.mastery.value.has(workflow.item.system.type.baseItem))) return;
 

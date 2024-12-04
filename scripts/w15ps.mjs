@@ -39,7 +39,7 @@ async function setupW15ps() {
     }
   */
 
-  console.log("%cw15ps-compendia %c| Initialized \n - W15ps registered", "color: #2e5a88; font-weight: bold", "color: #333333; font-weight: normal");
+  console.log("%cw15ps-compendia %c| Initialized and `W15ps` registered", "color: #2e5a88; font-weight: bold", "color: #333333; font-weight: normal");
 }
 
 export class W15psConfig {
@@ -53,15 +53,13 @@ export class W15psConfig {
 let weapon_mastery_config = false;
 Hooks.once('init', async () => {
   await registerSettings();
-  if (game.settings.get('w15ps-compendia', 'weapon_mastery_config')) {
-    weapon_mastery_config = true;
-  };
+  weapon_mastery_config = game.settings.get('w15ps-compendia', 'weapon_mastery_config') ??
+    true 
 });
 
 Hooks.on('dnd5e.preLongRest', (actor) => {
-  if (weapon_mastery_config) {
+  if (weapon_mastery_config)
     chooseWeaponMasteries(actor);
-  }
 });
 
 Hooks.once("ready", () => {

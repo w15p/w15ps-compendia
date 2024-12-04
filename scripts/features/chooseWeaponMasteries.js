@@ -1,5 +1,7 @@
-export async function chooseWeaponMasteries(actor) {
+import { logMsg } from "../utils.js";
 
+export async function chooseWeaponMasteries(actor) {
+  const feature = "Choose Weapon Masteries";
   if (Number(game.system.version.split('.')[0]) !== 4) return;
   // check for whether and how many masteries the actor has
   const classMasteries = await game.packs.get("dnd-players-handbook.classes").getDocuments({
@@ -70,12 +72,12 @@ export async function chooseWeaponMasteries(actor) {
 
   // gatekeeping and logging
   if (masteryGrants === 0) {
-    console.log(`${actor.name} has no weapon masteries.`);
+    logMsg(`${actor.name} has no weapon masteries.`, feature);
     return;
   } else {
     masteryGrants === masteries.size ?
-      console.log(`${actor.name} has ${masteryGrants} weapon masteries${specialMasteries}.`) :
-      console.log(`${actor.name} has ${masteries.size} of ${masteryGrants} weapon masteries${specialMasteries}.`);
+      logMsg(`${actor.name} has ${masteryGrants} weapon masteries${specialMasteries}.`, feature) :
+      logMsg(`${actor.name} has ${masteries.size} of ${masteryGrants} weapon masteries${specialMasteries}.`, feature);
   }
 
   // format the mastery choices for the dialog

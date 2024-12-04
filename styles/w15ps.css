@@ -1,0 +1,6 @@
+dialog .window-content .dialog-form footer.form-footer {
+  flex-direction: column;
+  img {
+    float: left;
+  }
+}

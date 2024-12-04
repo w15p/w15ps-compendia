@@ -1,3 +1,4 @@
+//FIXME - this should be moved to a ?journal? for easier editing
 export const weaponMasteries = [
   {
     id: "weapon1.system.identifier",
