@@ -48,7 +48,7 @@ export async function weaponMastery(args, workflow, macroItem) {
         workflow.actor.unsetFlag('w15ps-compendia', 'weaponMasteryUsed');
         return;
       } else {
-        if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
+        if (!workflow.hitTargets.size || workflow.targets.size !== 1) return;
         const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.actor, workflow.item.system.range.reach,
           { includeIncapacitated: false, isSeen: true, includeToken: false, relative: false });
         const cleaveTargets = MidiQOL.findNearby(['hostile', 'neutral'], masteryTarget, 5,
