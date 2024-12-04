@@ -8,9 +8,10 @@
       "discord": "w15p."
     }
   ],
-  "version": "12.4.3",
+  "version": "12.4.4",
   "url": "https://github.com/w15p/w15ps-compendia",
-  "download": "https://github.com/w15p/w15ps-compendia/releases/latest/download/module.zip",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
   "compatibility": {
     "verified": "12.331"
   },
