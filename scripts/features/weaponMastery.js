@@ -38,6 +38,9 @@ export async function weaponMastery(args, workflow, macroItem) {
     workflow.actor.system.abilities[workflow.item.abilityMod].mod :
     null;
 
+  console.log('weapon mastery')
+  console.log(mastery);
+
   switch (mastery) {
     case 'cleave':
       if (workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') === 'cleave') {
@@ -49,7 +52,7 @@ export async function weaponMastery(args, workflow, macroItem) {
         return;
       } else {
         if (!workflow.hitTargets.size || workflow.targets.size !== 1) return;
-        const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.actor, workflow.item.system.range.reach,
+        const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.token, workflow.item.system.range.reach,
           { includeIncapacitated: false, isSeen: true, includeToken: false, relative: false });
         const cleaveTargets = MidiQOL.findNearby(['hostile', 'neutral'], masteryTarget, 5,
           { includeIncapacitated: false, includeToken: false, relative: false }).filter(e => validTargets.includes(e));
@@ -75,6 +78,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       break;
 
     case 'graze':
+      console.log('graze')
       if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
       // update the chatCard with Graze info
       const chatMessage = game.messages.get(workflow.itemCardId);
@@ -90,7 +94,9 @@ export async function weaponMastery(args, workflow, macroItem) {
         .replace(searchIcon, replaceIcon);
       await chatMessage.update({ content: grazeContent });
       let grazeRoll = await new CONFIG.Dice.DamageRoll(`${mod}`, {}, { type: workflow.defaultDamageType, properties: [...workflow.item.system.properties] }).evaluate();
+      console.log('roll complete)')
       let grazeWorkflow = await new MidiQOL.DamageOnlyWorkflow(workflow.actor, workflow.token, null, null, [masteryTarget], grazeRoll, { itemCardUuid: workflow.itemCardUuid });
+      console.log('DOworkflow complete')
       console.log(grazeWorkflow);
       // move chat content search/replace after call if possible to make it work after MidiQOL.DamageOnlyWorkflow()
       //const searchString =  `<div class="midi-qol-damage-roll"><div style="text-align:center">Base Damage</div>`;
@@ -188,7 +194,8 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
+      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
+      await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
       break;
 
     case 'slow': // adapted from Moto 'Moo Deng' Moto's slow macro
@@ -217,7 +224,8 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
+      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
+      await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
       break;
 
     case 'topple':
@@ -299,7 +307,8 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: workflow.actor.uuid, effects: [vexEffect] });
+      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: workflow.actor.uuid, effects: [vexEffect] });
+      await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [vexEffect] });
       break;
 
     default:
