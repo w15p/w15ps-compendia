@@ -45,8 +45,7 @@ async function setupW15ps() {
 export class W15psConfig {
   static module = 'w15ps-compendia';
   static packs = [
-    'w15ps-grimoire',
-    'w15ps-wares'
+    'w15ps-grimoire'
   ];
 }
 
