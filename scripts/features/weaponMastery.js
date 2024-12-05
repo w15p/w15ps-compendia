@@ -78,7 +78,6 @@ export async function weaponMastery(args, workflow, macroItem) {
       break;
 
     case 'graze':
-      console.log('graze')
       if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
       // update the chatCard with Graze info
       const chatMessage = game.messages.get(workflow.itemCardId);
@@ -92,16 +91,11 @@ export async function weaponMastery(args, workflow, macroItem) {
         .replace(searchFeature, replaceFeature)
         .replace(searchStyle, replaceStyle)
         .replace(searchIcon, replaceIcon);
-      await chatMessage.update({ content: grazeContent });
       let grazeRoll = await new CONFIG.Dice.DamageRoll(`${mod}`, {}, { type: workflow.defaultDamageType, properties: [...workflow.item.system.properties] }).evaluate();
-      console.log('roll complete)')
       let grazeWorkflow = await new MidiQOL.DamageOnlyWorkflow(workflow.actor, workflow.token, null, null, [masteryTarget], grazeRoll, { itemCardUuid: workflow.itemCardUuid });
-      console.log('DOworkflow complete')
-      console.log(grazeWorkflow);
       // move chat content search/replace after call if possible to make it work after MidiQOL.DamageOnlyWorkflow()
       //const searchString =  `<div class="midi-qol-damage-roll"><div style="text-align:center">Base Damage</div>`;
       //const replaceString = `<div class="midi-qol-damage-roll"><div style="text-align:center">${feature} (Graze)</div>`;
-      //console.log(chatMessage.content);
       break;
 
     case 'nick': // this is lame - I want more
@@ -194,7 +188,6 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
       await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
       break;
 
@@ -224,7 +217,6 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
       await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
       break;
 
@@ -307,7 +299,6 @@ export async function weaponMastery(args, workflow, macroItem) {
           }
         }
       };
-      //await MidiQOL.socket().executeAsGM('createEffects', { actorUuid: workflow.actor.uuid, effects: [vexEffect] });
       await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [vexEffect] });
       break;
 
