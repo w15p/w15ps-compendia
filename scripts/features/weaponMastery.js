@@ -13,6 +13,7 @@ import { weaponMasteries } from "./weaponMasteries.js"; // import regardless of 
 import { logMsg } from "../utils.js";
 
 export async function weaponMastery(args, workflow, macroItem) {
+  console.log(workflow.macroPass);
   const feature = 'Weapon Mastery';
   const masteries = game.packs.has("dnd-players-handbook.equipment") ? // for optonal homebrew instead of official source
     workflow.actor.system.traits.weaponProf.mastery.value :
@@ -35,22 +36,50 @@ export async function weaponMastery(args, workflow, macroItem) {
 
   const masteryTarget = workflow.targets.first();
   let mod = (workflow.item.abilityMod) ? // handle the topple call
-    workflow.actor.system.abilities[workflow.item.abilityMod].mod :
+    workflow.actor.system.abilities[workflow.item.abilityMod].mod:
     null;
 
   console.log('weapon mastery')
   console.log(mastery);
 
-  switch (mastery) {
-    case 'cleave':
-      if (workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') === 'cleave') {
+  const usedMastery = {
+    name: "usedMastery",
+    transfer: false,
+    img: "icons/skills/ranged/arrow-flying-spiral-blue.webp",
+    origin: macroItem.uuid,
+    type: "base",
+    changes: [
+      {
+        key: `flags.w15ps-compendia.used${mastery.capitalize()}`,
+        value: true
+      }
+    ],
+    disabled: false,
+    duration: {
+      turns: 1
+    },
+    flags: {
+      dae: {
+        showIcon: true
+      }
+    }
+  };
+
+  switch (true) {
+    case (mastery === 'cleave' && !workflow.actor.getFlag('w15ps-compendia', `used${mastery.capitalize()}`)):
+      if (workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') === 'cleave' && workflow.macroPass === 'postAttackRollComplete' ) {
         if (workflow.hitTargets.size) {
+          // only include modifier if negative
+          console.log(`mod: ${mod}`)
+          let negMod = (mod < 0) ? mod : 0; //  + ${negMod}
+          console.log(`negMod: ${negMod}`)
           let cleaveRoll = await new CONFIG.Dice.DamageRoll(`${workflow.item.labels.damage} + ${workflow.item.system.magicalBonus}`, {}, { type: workflow.item.labels.damageTypes, properties: [...workflow.item.system.properties] }).evaluate();
           await new MidiQOL.DamageOnlyWorkflow(workflow.actor, workflow.token, null, null, [masteryTarget], cleaveRoll, { itemCardUuid: workflow.itemCardUuid });
         }
         workflow.actor.unsetFlag('w15ps-compendia', 'weaponMasteryUsed');
+        await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [usedMastery] });
         return;
-      } else {
+      } else if (workflow.macroPass !== 'postAttackRollComplete'){
         if (!workflow.hitTargets.size || workflow.targets.size !== 1) return;
         const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.token, workflow.item.system.range.reach,
           { includeIncapacitated: false, isSeen: true, includeToken: false, relative: false });
@@ -77,7 +106,21 @@ export async function weaponMastery(args, workflow, macroItem) {
       }
       break;
 
-    case 'graze':
+    case (mastery === 'graze' && workflow.macroPass === 'postAttackRollComplete'):
+      console.log('graze triggered');
+
+      if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
+      const itemData = {
+              name: `${feature} (Graze)`,
+              type: "feat",
+              img: workflow.item.img
+          }
+      console.log(`mod: ${mod}`)
+      let grazeRoll = await new CONFIG.Dice.DamageRoll(`${mod}`, {}, { type: workflow.defaultDamageType, properties: [...workflow.item.system.properties] }).evaluate();
+      let grazeWorkflow = await new MidiQOL.DamageOnlyWorkflow(workflow.actor, workflow.token, null, null, [masteryTarget], grazeRoll, {flavor: itemData.name, itemData: itemData});
+
+      // non-GM players can't access this through normal workflow - unfortunate as it is a nicer implementation, but the separate chatCard (above) works and this doesn't
+      /*
       if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
       // update the chatCard with Graze info
       const chatMessage = game.messages.get(workflow.itemCardId);
@@ -96,9 +139,10 @@ export async function weaponMastery(args, workflow, macroItem) {
       // move chat content search/replace after call if possible to make it work after MidiQOL.DamageOnlyWorkflow()
       //const searchString =  `<div class="midi-qol-damage-roll"><div style="text-align:center">Base Damage</div>`;
       //const replaceString = `<div class="midi-qol-damage-roll"><div style="text-align:center">${feature} (Graze)</div>`;
+      */
       break;
 
-    case 'nick': // this is lame - I want more
+    case (mastery === 'nick' && workflow.macroPass !== 'postAttackRollComplete' && !workflow.actor.getFlag('w15ps-compendia', `used${mastery.capitalize()}`)): // this is lame - I want more
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       const nickData = {
         type: "feat",
@@ -109,9 +153,10 @@ export async function weaponMastery(args, workflow, macroItem) {
         flavor: 'Weapon Mastery: Nick',
         content: (await fromUuid(CONFIG.DND5E.weaponMasteries.nick.reference)).text.content
       })
+      await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [usedMastery] });
       break;
 
-    case 'push': // adapted from thatlonelybugbear's code on MISC - only supports `game.canvas.grid.diagonals = 0`
+    case (mastery === 'push' && workflow.macroPass !== 'postAttackRollComplete'): // adapted from thatlonelybugbear's code on MISC - only supports `game.canvas.grid.diagonals = 0`
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       if (['huge', 'grg'].includes(masteryTarget.actor.system.traits.size)) {
         logMsg(`Push only works on large or smaller creatures and the target is ` +
@@ -162,7 +207,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       await MidiQOL.moveToken(masteryTarget, targetMove, animateMovement);
       break;
 
-    case 'sap':
+    case (mastery === 'sap' && workflow.macroPass !== 'postAttackRollComplete'):
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       const sapEffect = {
         name: "Sap",
@@ -191,7 +236,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [sapEffect] });
       break;
 
-    case 'slow': // adapted from Moto 'Moo Deng' Moto's slow macro
+    case (mastery === 'slow' && workflow.macroPass !== 'postAttackRollComplete'): // adapted from Moto 'Moo Deng' Moto's slow macro
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       const slowEffect = {
         name: "Slow",
@@ -220,7 +265,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       await MidiQOL.createEffects({ actorUuid: masteryTarget.actor.uuid, effects: [slowEffect] });
       break;
 
-    case 'topple':
+    case (mastery === 'topple' && workflow.macroPass !== 'postAttackRollComplete'):
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       let topple = await fromUuid("Item.KDDceMCNvevtLJVu");
       let charm = await fromUuid("Item.f0EFIISMuf7qOGKc");
@@ -272,7 +317,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       console.log(toppleWorkflow);
       break;
 
-    case 'vex':
+    case (mastery === 'vex' && workflow.macroPass !== 'postAttackRollComplete'):
       if (!workflow.hitTargets.size || workflow.hitTargets.size !== 1) return;
       const vexEffect = {
         name: "Vex",
@@ -303,7 +348,7 @@ export async function weaponMastery(args, workflow, macroItem) {
       break;
 
     default:
-      // this triggers on the topple synthetic item workflow so suppressing the error for now
-      //logMsg(`Error - no mastery of the weapon used (${workflow.item.system.name}) or an unsupported mastery (${mastery})`, feature);
+    // this triggers on the topple synthetic item workflow so suppressing the error for now
+    //logMsg(`Error - no mastery of the weapon used (${workflow.item.system.name}) or an unsupported mastery (${mastery})`, feature);
   }
 }
