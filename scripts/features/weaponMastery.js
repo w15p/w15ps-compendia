@@ -302,7 +302,7 @@ export async function weaponMastery(args, workflow, macroItem) {
               type: "save",
               save: { dc: { calculation: '', formula: '8 + @mod + @prof' }, ability: ['con'] },
               effects: [{ _id: "toppleEffect0000", onSave: false }],
-              duration: { units: "inst", value: undefined },
+              duration: { units: "disp", concentration: false },
               consumption: { spellSlot: false }
             }
           },
