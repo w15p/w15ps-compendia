@@ -63,7 +63,7 @@
         "id": "dae",
         "type": "module",
         "compatibility": {
-          "verified": "12.0.3"
+          "verified": "12.0.5"
         }
       },
       {
@@ -84,7 +84,7 @@
         "id": "midi-qol",
         "type": "module",
         "compatibility": {
-          "verified": "12.4.12"
+          "verified": "12.4.14"
         }
       },
       {
