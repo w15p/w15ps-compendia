@@ -32,13 +32,14 @@ export async function weaponMastery(args, workflow, macroItem) {
 
   const mastery = workflow.actor.getFlag('w15ps-compendia', 'tacticalMastery') ??
     weapons.find(e => e.id === workflow.item.system.identifier || e.baseItem === workflow.item.system.type.baseItem)?.mastery;
-  workflow.actor.unsetFlag('w15ps-compendia', 'tacticalMastery')
+  if (workflow.macroPass !== 'postAttackRollComplete') workflow.actor.unsetFlag('w15ps-compendia', 'tacticalMastery');
 
   const masteryTarget = workflow.targets.first();
   let mod = (workflow.item.abilityMod) ? // handle the topple call
     workflow.actor.system.abilities[workflow.item.abilityMod].mod:
     null;
 
+  console.log(workflow.actor.getFlag('w15ps-compendia', 'tacticalMastery'));
   console.log('weapon mastery')
   console.log(mastery);
 
