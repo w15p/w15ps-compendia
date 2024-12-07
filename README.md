@@ -16,10 +16,10 @@ A small set of automations levaraging MidiQOL and CPR. Current release is limite
 *Requires:*
 * D&D 5e Game System 4.1.1+
 * D&D 2024 Players Handbook 1.2.0
-* Dynamic Active Effects 12.0.3+
+* Dynamic Active Effects 12.0.5+
 * [Chris's fork of Jack Kerouac's Animated Spell Effects 0.4.6](https://github.com/chrisk123999/animated-spell-effects-cartoon/releases/latest)
 * Jules and Ben's Animated Assets *(either the free version or the patreon, but you need one of the two)*
 * Lib Wrapper 1.13.2.
-* MidiQOL 12.4.12+
+* MidiQOL 12.4.14+
 * Sequencer 3.4.3
 * Socket Lib 1.1.0
