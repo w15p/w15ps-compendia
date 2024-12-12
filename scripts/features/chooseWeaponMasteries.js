@@ -1,3 +1,4 @@
+import { weaponMasteries } from "./weaponMasteries.js";
 import { logMsg } from "../utils.js";
 
 export async function chooseWeaponMasteries(actor) {
@@ -51,6 +52,8 @@ export async function chooseWeaponMasteries(actor) {
     }
   });
 
+  // this needs a wrapping conditional but it cannot be supported by provided content as soulknife is not part of the free rules
+  // could be extended at a later date to allow for homebrew
   // populate special class/subclass weapons that have the mastery property
   const classWeapons = await game.packs.get("dnd-players-handbook.classes").getDocuments({
     type: "weapon",
@@ -60,8 +63,8 @@ export async function chooseWeaponMasteries(actor) {
   });
 
   // FIXME: differentiate this based on class
-  let disabledMasteries = new Set();
-  let specialMasteries = '';
+  let disabledMasteries = new Set(); // move outside conditional
+  let specialMasteries = ''; // move outside conditional
   if (actor.classes.rogue?.subclass?.system.identifier === 'soulknife') {
     classWeapons.forEach(e => weapons.splice(0, 0, e));
     classWeapons.forEach(e => masteries.add(e.system.identifier));
