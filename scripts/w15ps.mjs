@@ -15,6 +15,7 @@ import { stepsOfTheFey } from "./features/stepsOfTheFey.js";
 //weapon mastery
 import { tacticalMaster } from "./features/tacticalMaster.js";
 import { weaponMastery } from "./features/weaponMastery.js";
+import { wmFactory } from "./features/weaponMastery.js";
 import { chooseWeaponMasteries } from './features/chooseWeaponMasteries.js';
 
 async function setupW15ps() {
@@ -25,6 +26,7 @@ async function setupW15ps() {
   // export for use with onUseMacros
   w15ps.tacticalMaster = tacticalMaster;
   w15ps.weaponMastery = weaponMastery;
+  w15ps.wmFactory = wmFactory;
 
   /*
     // register with cpr

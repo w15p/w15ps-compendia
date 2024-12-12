@@ -18,33 +18,6 @@ export class wmFactory {
   }
 }
 
-class WeaponMastery_PHB extends WeaponMastery {
-  // define PHB-specific elements here
-  getMasteries(workflow) {
-    return workflow.actor.system.traits.weaponProf.mastery.value;
-  };
-  async getWeapons() {
-    return Array.from(await game.packs.get("dnd-players-handbook.equipment").getDocuments({
-      type: "weapon",
-      system: {
-        mastery__in: Object.keys(CONFIG.DND5E.weaponMasteries)
-      }
-    }))
-      .filter(e => this.masteries.has(e.system.identifier))
-      .map(e => { return { id: e.system.identifier, baseItem: e.system.type.baseItem, mastery: e.system.mastery } });
-  }
-}
-
-class WeaponMastery_Free extends WeaponMastery {
-  // define Free-specific elements here
-  getMasteries(workflow) {
-    return new Set(workflow.actor.getFlag('w15ps-compendia', 'mastery'));
-  }
-  async getWeapons() {
-    return weaponMasteries.filter(e => masteries.has(e.id));
-  }
-}
-
 class WeaponMastery {
   // define common elements here
   usedMastery = {
@@ -343,6 +316,33 @@ class WeaponMastery {
   }
 }
 
+class WeaponMastery_PHB extends WeaponMastery {
+  // define PHB-specific elements here
+  getMasteries(workflow) {
+    return workflow.actor.system.traits.weaponProf.mastery.value;
+  };
+  async getWeapons() {
+    return Array.from(await game.packs.get("dnd-players-handbook.equipment").getDocuments({
+      type: "weapon",
+      system: {
+        mastery__in: Object.keys(CONFIG.DND5E.weaponMasteries)
+      }
+    }))
+      .filter(e => this.masteries.has(e.system.identifier))
+      .map(e => { return { id: e.system.identifier, baseItem: e.system.type.baseItem, mastery: e.system.mastery } });
+  }
+}
+
+class WeaponMastery_Free extends WeaponMastery {
+  // define Free-specific elements here
+  getMasteries(workflow) {
+    return new Set(workflow.actor.getFlag('w15ps-compendia', 'mastery'));
+  }
+  async getWeapons() {
+    return weaponMasteries.filter(e => masteries.has(e.id));
+  }
+}
+
 //graze:
   // non-GM players can't access this through normal workflow - unfortunate as it is a nicer implementation, but the separate chatCard (above) works and this doesn't
   /*
@@ -366,7 +366,7 @@ class WeaponMastery {
   //const replaceString = `<div class="midi-qol-damage-roll"><div style="text-align:center">${feature} (Graze)</div>`;
   */
 
-/*
+
 export async function weaponMastery(args, workflow, macroItem) {
   const feature = 'Weapon Mastery';
   const masteries = game.packs.has("dnd-players-handbook.equipment") ? // for optonal homebrew instead of official source
@@ -677,4 +677,3 @@ break;
     //logMsg(`Error - no mastery of the weapon used (${workflow.item.system.name}) or an unsupported mastery (${mastery})`, feature);
   }
 }
-*/
