@@ -69,6 +69,7 @@
       {
         "id": "animated-spell-effects-cartoon",
         "type": "module",
+        "manifest": "https://github.com/chrisk123999/animated-spell-effects-cartoon/releases/download/0.4.6/module.json",
         "compatibility": {
           "verified": "0.4.6"
         }
