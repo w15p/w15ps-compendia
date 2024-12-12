@@ -1,0 +1,117 @@
+name: Change Season
+type: feat
+_id: xBIhXFJUCt0M2D8y
+img: icons/magic/nature/leaf-glow-maple-orange-purple.webp
+system:
+  description:
+    value: ''
+    chat: ''
+  source:
+    custom: ''
+  activation:
+    type: special
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: self
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: util
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  summons: null
+  type:
+    value: race
+    subtype: ''
+  prerequisites:
+    level: null
+  properties: []
+  requirements: ''
+  recharge:
+    value: null
+    charged: false
+effects: []
+folder: null
+sort: 800000
+ownership:
+  default: 0
+  f8to9T9xacrYNMMc: 3
+flags:
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  midi-qol:
+    rollAttackPerTarget: default
+    itemCondition: ''
+    effectCondition: ''
+  chris-premades:
+    info:
+      identifier: changeSeason
+      version: 0.12.64
+      source: w15ps-compendia.w15ps-grimoire
+    macros:
+      midi:
+        item:
+          - changeSeason
+      rest:
+        - changeSeason
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1731875007307
+  modifiedTime: 1732768950123
+  lastModifiedBy: iB9D3WCL40PmvK6c
+_key: '!items!xBIhXFJUCt0M2D8y'
+

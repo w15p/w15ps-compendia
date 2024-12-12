@@ -1,0 +1,111 @@
+name: Steps of the Fey (Dreadful Step)
+type: feat
+img: icons/magic/death/projectile-skull-fire-purple.webp
+system:
+  description:
+    value: ''
+    chat: ''
+  source:
+    custom: ''
+  activation:
+    type: special
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: '5'
+    width: null
+    units: ft
+    type: creature
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: spec
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: util
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d10
+        - psychic
+    versatile: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  summons: null
+  type:
+    value: ''
+    subtype: ''
+  prerequisites:
+    level: null
+  properties: []
+  requirements: ''
+  recharge:
+    value: null
+    charged: false
+effects: []
+folder: null
+flags:
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+    saveDamage: nodam
+    bonusSaveDamage: default
+  midi-qol:
+    rollAttackPerTarget: default
+    itemCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730650229078
+  modifiedTime: 1732768950123
+  lastModifiedBy: iB9D3WCL40PmvK6c
+ownership:
+  default: 0
+  MaCLnRgHzMpMdp8c: 3
+_id: z2s9VGbvyaQLilwn
+sort: 1100000
+_key: '!items!z2s9VGbvyaQLilwn'
+

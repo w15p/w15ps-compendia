@@ -1,0 +1,149 @@
+name: Tactical Master
+type: feat
+folder: null
+img: icons/sundries/documents/blueprint-axe.webp
+system:
+  description:
+    value: ''
+    chat: ''
+  source:
+    custom: ''
+    rules: '2024'
+    revision: 1
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: 9
+  properties: []
+  requirements: Fighter
+  activities: {}
+  enchant: {}
+  identifier: tactical-master
+effects:
+  - name: Tactical Master
+    img: icons/sundries/documents/blueprint-axe.webp
+    _id: 9Dwnc4r39iE997j0
+    type: base
+    system: {}
+    changes:
+      - key: system.traits.weaponProf.mastery.bonus
+        mode: 2
+        value: push
+        priority: 20
+      - key: system.traits.weaponProf.mastery.bonus
+        mode: 2
+        value: sap
+        priority: 20
+      - key: system.traits.weaponProf.mastery.bonus
+        mode: 2
+        value: slow
+        priority: 20
+      - key: flags.midi-qol.onUseMacroName
+        mode: 0
+        value: ItemMacro, preAttackRoll
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    origin: Actor.do4Rgmn75oFpHX73.Item.HJ90Ux58kZKonacv
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dae:
+        disableCondition: ''
+        disableIncapacitated: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+      core:
+        overlay: false
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 4.1.2
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    _key: '!items.effects!HdglA0tIoP9qtno2.9Dwnc4r39iE997j0'
+flags:
+  dnd5e: {}
+  dae:
+    macro:
+      name: Tactical Master
+      img: icons/sundries/documents/blueprint-axe.webp
+      type: script
+      scope: global
+      command: await W15ps.tacticalMaster(workflow);
+      author: iB9D3WCL40PmvK6c
+      ownership:
+        default: 3
+      _id: null
+      folder: null
+      sort: 0
+      flags: {}
+      _stats:
+        coreVersion: '12.331'
+        systemId: dnd5e
+        systemVersion: 4.1.1
+        createdTime: null
+        modifiedTime: null
+        lastModifiedBy: null
+        compendiumSource: null
+        duplicateSource: null
+  midi-qol:
+    AoETargetType: any
+    AoETargetTypeIncludeSelf: true
+    autoTarget: default
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 4.1.2
+  createdTime: 1732768949876
+  modifiedTime: 1732807656985
+  lastModifiedBy: iB9D3WCL40PmvK6c
+ownership:
+  default: 0
+  iB9D3WCL40PmvK6c: 3
+_id: HdglA0tIoP9qtno2
+sort: 700000
+_key: '!items!HdglA0tIoP9qtno2'
+

@@ -1,0 +1,948 @@
+name: Sneak Attack Effects
+type: feat
+img: icons/skills/melee/unarmed-punch-fist-blue.webp
+system:
+  description:
+    value: ''
+    chat: ''
+  source:
+    custom: ''
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: creature
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: any
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: dex
+  summons: null
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+  properties: []
+  requirements: ''
+  recharge:
+    value: null
+    charged: false
+effects:
+  - changes: []
+    disabled: false
+    duration:
+      rounds: 2
+      seconds: null
+      startRound: null
+      startTime: 18672345162
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          Limited Activity. You can Move or take one action on your turn, not
+          both. You also can’t take a Bonus Action or a Reaction.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      times-up:
+        isPassive: false
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration:
+          - turnEnd
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: f6UMwiTPbelFsc43
+    name: Dazed
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;color:rgba(0, 0, 0, 0.9);font-family:Signika,
+      sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial">Daze
+      (Cost: 2d6).</strong> The target must succeed on a </span><a
+      data-action="roll"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia:
+      ;cursor:pointer;background:var(--t5e-content-entity-link-background);padding:0.0625rem
+      0.25rem 0px;border:.0625rem solid
+      var(--t5e-separator-color);white-space:nowrap;word-break:break-all;border-radius:0.3125rem;color:var(--t5e-content-entity-link-color)">Constitution
+      saving throw</a><span style="font-family:Signika, sans-serif">, or on its
+      next turn, it can do only one of the following: move or take an action or
+      a Bonus Action.</span></p>
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: icons/magic/control/hypnosis-mesmerism-swirl.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.f6UMwiTPbelFsc43'
+  - changes: []
+    disabled: false
+    duration:
+      rounds: 1
+      seconds: null
+      startRound: null
+      startTime: null
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        statusId: 'Convenient Effect: Disarmed'
+      dfreds-convenient-effects:
+        description: Target drops one item of your choice that it’s holding.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      times-up:
+        isPassive: false
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: 1HXGWcR74ZJYJirI
+    name: Disarmed
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: icons/skills/social/wave-halt-stop.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.1HXGWcR74ZJYJirI'
+  - changes:
+      - key: flags.midi-qol.OverTime
+        mode: 5
+        value: |-
+          turn=end,
+          label=Poisoned (Cunning Strike),
+          saveRemove=true,
+          saveDC=8 + @abilities.dex.mod + @attributes.prof,
+          saveAbility=con
+        priority: 20
+    disabled: false
+    duration:
+      rounds: null
+      seconds: 60
+      startRound: null
+      startTime: null
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          - A poisoned creature has disadvantage on attack rolls and ability
+          checks.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: v3XWTL0b6ydusu47
+    name: Poisoned
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ">Poison (Cost: 1d6).</strong> You add a toxin to
+      your strike, forcing the target to make a Constitution saving throw. On a
+      failed save, the target has the </span><span class="reference-link"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: "><span style="font-family:Signika, sans-serif"><a
+      class="content-link" draggable="true" data-link
+      data-uuid="Compendium.dnd5e.rules.JournalEntry.w7eitkpD7QQTB6j0.JournalEntryPage.lq3TRI6ZlED8ABMx"
+      data-id="lq3TRI6ZlED8ABMx" data-type="JournalEntryPage"
+      data-pack="dnd5e.rules" data-tooltip="Rule Page"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;cursor:pointer;--content-link-background:rgba(0, 0,
+      0,
+      0.1);background:transparent;padding:0px;border:0px;border-radius:0.3125rem;white-space:nowrap;word-break:break-all;color:var(--color-text-hyperlink);font-weight:bold"><strong>Poisoned</strong></a></span></span><span
+      style="font-family:Signika, sans-serif"> condition for 1 minute. At the
+      end of each of its turns, the Poisoned target repeats the save, ending the
+      effect on itself on a success.</span></p>
+    statuses:
+      - poisoned
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: modules/dfreds-convenient-effects/images/poisoned.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.v3XWTL0b6ydusu47'
+  - changes: []
+    disabled: false
+    duration:
+      rounds: 2
+      seconds: null
+      startRound: null
+      startTime: null
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          - A blinded creature can't see and automatically fails any ability
+          check that requires sight.<br/>- Attack rolls against the creature
+          have advantage, and the creature's attack rolls have disadvantage.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration:
+          - turnEnd
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: SIFFvtOkfWpNcxj4
+    name: Blinded
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;color:rgba(0, 0, 0, 0.9);font-family:Signika,
+      sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial">Obscure
+      (Cost: 3d6).</strong> The target must succeed on a </span><a
+      data-action="roll"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia:
+      ;cursor:pointer;background:var(--t5e-content-entity-link-background);padding:0.0625rem
+      0.25rem 0px;border:.0625rem solid
+      var(--t5e-separator-color);white-space:nowrap;word-break:break-all;border-radius:0.3125rem;color:var(--t5e-content-entity-link-color)">Dexterity
+      saving throw</a><span style="font-family:Signika, sans-serif">, or it has
+      the <a class="content-link" draggable="true" data-link
+      data-uuid="Compendium.dnd5e.rules.JournalEntry.w7eitkpD7QQTB6j0.JournalEntryPage.0b8N4FymGGfbZGpJ"
+      data-id="0b8N4FymGGfbZGpJ" data-type="JournalEntryPage"
+      data-pack="dnd5e.rules" data-tooltip="Rule Page"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;cursor:pointer;--content-link-background:rgba(0, 0,
+      0,
+      0.1);background:transparent;padding:0px;border:0px;border-radius:0.3125rem;white-space:nowrap;word-break:break-all;color:var(--color-text-hyperlink);font-weight:bold"><strong>Blinded</strong></a>
+      condition until the end of its next turn.</span></p>
+    statuses:
+      - blinded
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: modules/dfreds-convenient-effects/images/blinded.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.SIFFvtOkfWpNcxj4'
+  - changes: []
+    disabled: false
+    duration:
+      rounds: null
+      seconds: null
+      startRound: null
+      startTime: 18672345162
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          - A prone creature's only movement option is to crawl, unless it
+          stands up and thereby ends the condition.<br/>- The creature has
+          disadvantage on attack rolls.<br/>- An attack roll against the
+          creature has advantage if the attacker is within 5 feet of the
+          creature. Otherwise, the attack roll has disadvantage.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+      ActiveAuras:
+        isAura: false
+        aura: None
+        nameOverride: ''
+        radius: ''
+        alignment: ''
+        type: ''
+        customCheck: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: bk8hrz1xM5L5D8fd
+    name: Prone
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ">Trip (Cost: 1d6).</strong> If the target is Large
+      or smaller, it must succeed on a Dexterity saving throw or have the
+      </span><span class="reference-link"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: "><span style="font-family:Signika, sans-serif"><a
+      class="content-link" draggable="true" data-link
+      data-uuid="Compendium.dnd5e.rules.JournalEntry.w7eitkpD7QQTB6j0.JournalEntryPage.y0TkcdyoZlOTmAFT"
+      data-id="y0TkcdyoZlOTmAFT" data-type="JournalEntryPage"
+      data-pack="dnd5e.rules" data-tooltip="Rule Page"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;cursor:pointer;--content-link-background:rgba(0, 0,
+      0,
+      0.1);background:transparent;padding:0px;border:0px;border-radius:0.3125rem;white-space:nowrap;word-break:break-all;color:var(--color-text-hyperlink);font-weight:bold"><strong>Prone</strong></a></span></span><span
+      style="font-family:Signika, sans-serif"> condition.</span></p>
+    statuses:
+      - prone
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: modules/dfreds-convenient-effects/images/prone.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.bk8hrz1xM5L5D8fd'
+  - changes: []
+    disabled: false
+    duration:
+      rounds: 1
+      seconds: null
+      startRound: null
+      startTime: 18672345162
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          Immediately after the attack, you move up to half your Speed without
+          provoking Opportunity Attacks.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      times-up:
+        isPassive: false
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: 4ymNntRE5dvX1ozB
+    name: Withdrawn
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;color:rgba(0, 0, 0, 0.9);font-family:Signika,
+      sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial">Withdraw
+      (Cost: 1d6).</strong> Immediately after the attack, you move up to half
+      your Speed without provoking Opportunity Attacks.</span></p>
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: icons/skills/movement/figure-running-gray.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.4ymNntRE5dvX1ozB'
+  - changes:
+      - key: flags.midi-qol.OverTime
+        mode: 5
+        value: |-
+          turn=end,
+          allowIncapacitated=true,
+          label=Knocked Out(Cunning Strike),
+          saveRemove=true,
+          saveDC=8 + @abilities.dex.mod + @attributes.prof,
+          saveAbility=con
+        priority: 20
+    disabled: false
+    duration:
+      rounds: null
+      seconds: 60
+      startRound: null
+      startTime: null
+      startTurn: null
+      turns: null
+      combat: null
+    flags:
+      core:
+        overlay: false
+      dfreds-convenient-effects:
+        description: >-
+          - An unconscious creature is incapacitated (See the condition) can't
+          move or speak, and is unaware of its surroundings.<br/>- The creature
+          drops whatever its holding and falls prone (See the condition).<br/>-
+          The creature automatically fails Strength and Dexterity saving
+          throws.<br/>- Attack rolls against the creature have advantage.<br/>-
+          Any attack that hits the creature is a critical hit if the attacker is
+          within 5 feet of the creature.
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration:
+          - isDamaged
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+    origin: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+    tint: '#ffffff'
+    transfer: false
+    _id: iUaE4swXzp0ZaYFo
+    name: Unconscious
+    description: >-
+      <p><span style="font-family:Signika, sans-serif"><strong
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;color:rgba(0, 0, 0, 0.9);font-family:Signika,
+      sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial">Knock
+      Out (Cost: 6d6).</strong> The target must succeed on a </span><a
+      data-action="roll"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia:
+      ;cursor:pointer;background:var(--t5e-content-entity-link-background);padding:0.0625rem
+      0.25rem 0px;border:.0625rem solid
+      var(--t5e-separator-color);white-space:nowrap;word-break:break-all;border-radius:0.3125rem;color:var(--t5e-content-entity-link-color)">Constitution
+      saving throw</a><span style="font-family:Signika, sans-serif">, or it has
+      the <a class="content-link" draggable="true" data-link
+      data-uuid="Compendium.dnd5e.rules.JournalEntry.w7eitkpD7QQTB6j0.JournalEntryPage.UWw13ISmMxDzmwbd"
+      data-id="UWw13ISmMxDzmwbd" data-type="JournalEntryPage"
+      data-pack="dnd5e.rules" data-tooltip="Rule Page"
+      style="box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--t5e-scrollbar-thumb-color)
+      var(--t5e-scrollbar-track-color);--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:
+      ;--tw-pan-y: ;--tw-pinch-zoom:
+      ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position:
+      ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal:
+      ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing:
+      ;--tw-numeric-fraction: ;--tw-ring-inset:
+      ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59
+      130 246/.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0
+      #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:
+      ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate:
+      ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow:
+      ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast:
+      ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate:
+      ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate:
+      ;--tw-backdrop-sepia: ;cursor:pointer;--content-link-background:rgba(0, 0,
+      0,
+      0.1);background:transparent;padding:0px;border:0px;border-radius:0.3125rem;white-space:nowrap;word-break:break-all;color:var(--color-text-hyperlink);font-weight:bold"><strong>Unconscious</strong></a>
+      condition for 1 minute or until it takes any damage. The Unconscious
+      target repeats the save at the end of each of its turns, ending the effect
+      on itself on a success.</span></p>
+    statuses:
+      - unconscious
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: icons/svg/unconscious.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Bg7UG3F98gkf13ft.iUaE4swXzp0ZaYFo'
+folder: null
+flags:
+  scene-packer:
+    hash: 13cf070e67fc385c98286db0307084b3f72088a8
+    sourceId: Item.O7GAtyQta70jcGJu
+  midi-qol:
+    effectActivation: false
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    rollOther: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  core:
+    sourceId: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+  exportSource:
+    world: Rime-of-the-Frost-Maiden
+    system: dnd5e
+    coreVersion: '12.331'
+    systemVersion: 3.3.1
+  custom-character-sheet-sections:
+    sectionName: ''
+  rest-recovery:
+    data:
+      recovery:
+        enabled: false
+_stats:
+  compendiumSource: Actor.5DjHxafBLlVrmf0Y.Item.DDqaC1iKOk05KsZK
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1731087757607
+  modifiedTime: 1732768950123
+  lastModifiedBy: iB9D3WCL40PmvK6c
+ownership:
+  default: 0
+  MaCLnRgHzMpMdp8c: 3
+_id: Bg7UG3F98gkf13ft
+sort: 200000
+_key: '!items!Bg7UG3F98gkf13ft'
+

@@ -1,0 +1,117 @@
+name: Steps of the Fey
+type: feat
+_id: crD5fOEaDK7nwpuz
+img: icons/magic/nature/root-vine-thorned-coil-green.webp
+system:
+  description:
+    value: ''
+    chat: ''
+  source:
+    custom: ''
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: 5
+    max: max(1, floor((@abilities.cha.value - 10) / 2))
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: ''
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  summons: null
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+  properties:
+    - mgc
+  requirements: ''
+  recharge:
+    value: null
+    charged: false
+effects: []
+folder: null
+sort: 500000
+ownership:
+  default: 0
+  f8to9T9xacrYNMMc: 3
+flags:
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  midi-qol:
+    rollAttackPerTarget: default
+    itemCondition: ''
+    effectCondition: ''
+    '-=onUseMacroName': null
+  chris-premades:
+    macros:
+      midi:
+        item:
+          - stepsOfTheFey
+    info:
+      identifier: stepsOfTheFey
+      version: 1731875350804
+      source: w15ps-compendia.w15ps-grimoire
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1731874803387
+  modifiedTime: 1732768950123
+  lastModifiedBy: iB9D3WCL40PmvK6c
+_key: '!items!crD5fOEaDK7nwpuz'
+

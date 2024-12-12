@@ -1,0 +1,134 @@
+name: Improved Cunning Strike
+type: feat
+img: icons/skills/melee/blade-tip-acid-poison-green.webp
+system:
+  description:
+    value: >-
+      <p><span style="font-family:Roboto, Helvetica, sans-serif">You can use up
+      to two Cunning Strike effects when you deal Sneak Attack damage, paying
+      the die cost for each effect.</span></p>
+    chat: ''
+  source:
+    book: Player's Handbook (2024)
+    page: '131'
+    custom: ''
+    license: ''
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: null
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  summons: null
+  type:
+    value: ''
+    subtype: ''
+  prerequisites:
+    level: null
+  properties: []
+  requirements: ''
+  recharge:
+    value: null
+    charged: false
+effects: []
+folder: null
+flags:
+  scene-packer:
+    hash: eaedd74f7d901bfd65b5bc7116850cbb067bb36d
+    sourceId: Item.puTq3sC2rqwKYoZn
+  magicitems:
+    enabled: false
+    default: ''
+    equipped: false
+    attuned: false
+    charges: '0'
+    chargeType: c1
+    destroy: false
+    destroyFlavorText: 'reaches 0 charges: it crumbles into ashes and is destroyed.'
+    rechargeable: false
+    recharge: '0'
+    rechargeType: t1
+    rechargeUnit: r1
+    sorting: l
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  midi-qol:
+    rollAttackPerTarget: default
+    itemCondition: ''
+    effectCondition: ''
+  exportSource:
+    world: Rime-of-the-Frost-Maiden
+    system: dnd5e
+    coreVersion: '12.331'
+    systemVersion: 3.3.1
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1731087754250
+  modifiedTime: 1732768950123
+  lastModifiedBy: iB9D3WCL40PmvK6c
+ownership:
+  default: 0
+  MaCLnRgHzMpMdp8c: 3
+_id: Umngy1LkYK2M7cuP
+sort: 400000
+_key: '!items!Umngy1LkYK2M7cuP'
+

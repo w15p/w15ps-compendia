@@ -1,0 +1,25 @@
+{
+  "name": "w15ps-compendia",
+  "version": "12.4.10",
+  "description": "A small set of Foundry VTT automations levaraging MidiQOL.",
+  "main": "scripts/w15ps.mjs",
+  "scripts": {
+    "pushLDBtoYML": "node ./tools/pushLDBtoYML.mjs",
+    "pullYMLtoLDB": "node ./tools/pullYMLtoLDB.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w15p/w15ps-compendia.git"
+  },
+  "keywords": [
+    "automation",
+    "midiqol",
+    "foundry"
+  ],
+  "author": "w15p",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w15p/w15ps-compendia/issues"
+  },
+  "homepage": "https://github.com/w15p/w15ps-compendia#readme"
+}
