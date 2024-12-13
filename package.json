@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/w15p/w15ps-compendia/issues"
   },
-  "homepage": "https://github.com/w15p/w15ps-compendia#readme"
+  "homepage": "https://github.com/w15p/w15ps-compendia#readme",
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.3"
+  }
 }
