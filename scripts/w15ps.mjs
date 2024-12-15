@@ -1,5 +1,4 @@
 import { registerSettings } from './settings.js';
-/*
 //eladrin
 import { changeSeason } from "./features/changeSeason.js";
 import { feyStep } from "./features/feyStep.js";
@@ -11,7 +10,6 @@ import { sneakAttack } from "./features/sneakAttack.js";
 //warlock
 import { lifedrinker } from "./features/lifedrinker.js";
 import { stepsOfTheFey } from "./features/stepsOfTheFey.js";
-*/
 //weapon mastery
 import { tacticalMaster } from "./features/tacticalMaster.js";
 import { wmFactory } from "./features/weaponMastery.js";
@@ -25,18 +23,7 @@ async function setupW15ps() {
   w15ps.tacticalMaster = tacticalMaster;
   w15ps.weaponMastery = wmFactory.newWeaponMastery();
 
-  if (game.modules.find(e => e.id === 'dnd-players-handbook')?.active && game.modules.find(e => e.id === 'chris-premades')?.active) {
-    //eladrin
-    import("./features/changeSeason.js");
-    import("./features/feyStep.js");
-    import("./features/feyTrance.js");
-    //paladin
-    import("./features/layOnHands.js");
-    //rogue
-    import("./features/sneakAttack.js");
-    //warlock
-    import("./features/lifedrinker.js");
-    import("./features/stepsOfTheFey.js");
+  if (game.modules.find(e => e.id === 'chris-premades')?.active) {
     // register with cpr
     chrisPremades.utils.macroUtils.registerMacros([changeSeason, feyStep, feyTrance, layOnHands, lifedrinker, sneakAttack, stepsOfTheFey]);
 

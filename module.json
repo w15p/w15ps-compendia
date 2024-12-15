@@ -52,11 +52,19 @@
     ],
     "requires": [
       {
+        "id": "chris-premades",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.0.49",
+          "verified": "1.1.0"
+        }
+      },
+      {
         "id": "dae",
         "type": "module",
         "compatibility": {
           "minimum": "11.3.68",
-          "verified": "12.0.5"
+          "verified": "12.0.6.1"
         }
       },
       {
@@ -79,7 +87,7 @@
         "type": "module",
         "compatibility": {
           "minimum": "11.6.28",
-          "verified": "12.4.14"
+          "verified": "12.4.15"
         }
       },
       {
