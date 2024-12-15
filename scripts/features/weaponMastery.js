@@ -318,13 +318,13 @@ class WeaponMastery {
   }
 
   static async getClassMasteries(actor) { // handles _FREE and _Legacy
-    let masteryGrants = Object.entries(actor.classes).map(([i, d]) => classMasteries
-      .find(c => c.id === i).masteries
-      .filter(t => t.level <= d.system.levels)).flat(2)
-      .reduce((subGrants, { maxGrants }) => subGrants + maxGrants, 0);
+    let masteryGrants = Object.entries(actor.classes)
+      .map(([i, d]) => (classMasteries.find((c) => c.id === i)?.masteries ?? []).filter((t) => t.level <= d.system.levels))
+      .flat(2)
+      .reduce((totalGrants, { grants }) => totalGrants + grants, 0);
     return [masteryGrants, new Set(), ''];
   }
-  static async getWeaponCHoices() { // handles _Free and _Legacy
+  static async getWeaponChoices() { // handles _Free and _Legacy
     let weapons = await game.packs.get("dnd5e.items").getDocuments({
       type: "weapon",
       system: {

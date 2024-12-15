@@ -9,36 +9,36 @@ export const classMasteries = [
   {
     id: "barbarian",
     masteries: [
-      { level: 1, maxGrants: 2 },
-      { level: 4, maxGrants: 3 },
-      { level: 10, maxGrants: 4 }
+      { level: 1, grants: 2 },
+      { level: 4, grants: 1 },
+      { level: 10, grants: 1 }
     ]
   },
   {
     id: "fighter",
     masteries: [
-      { level: 1, maxGrants: 2 },
-      { level: 4, maxGrants: 3 },
-      { level: 10, maxGrants: 4 },
-      { level: 16, maxGrants: 5 }
+      { level: 1, grants: 2 },
+      { level: 4, grants: 1 },
+      { level: 10, grants: 1 },
+      { level: 16, grants: 1 }
     ]
   },
   {
     id: "paladin",
     masteries: [
-      { level: 1, maxGrants: 2 }
+      { level: 1, grants: 2 }
     ]
   },
   {
     id: "ranger",
     masteries: [
-      { level: 1, maxGrants: 2 }
+      { level: 1, grants: 2 }
     ]
   },
   {
     id: "rogue",
     masteries: [
-      { level: 1, maxGrants: 2 }
+      { level: 1, grants: 2 }
     ]
   }
 ]
