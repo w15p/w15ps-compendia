@@ -324,7 +324,7 @@ class WeaponMastery {
       .reduce((totalGrants, { grants }) => totalGrants + grants, 0);
     return [masteryGrants, new Set(), ''];
   }
-  static async getWeaponChoices(weaponProfs) { // handles _Free and _Legacy
+  static async getWeaponChoices(weaponProfs) { // handles _Free    
     let weapons = await game.packs.get("dnd5e.items").getDocuments({
       type: "weapon",
       system: {
@@ -514,6 +514,15 @@ class WeaponMastery_Legacy extends WeaponMastery {
     (actor.getFlag('w15ps-compendia', 'mastery') === undefined) ??
       logMsg(`Weapon Masteries need to be stored in an actor flag, eg: actor.setFlag('w15ps-compendia, 'mastery', ['shortsword', 'dagger']);`, feature);
     return new Set(actor.getFlag('w15ps-compendia', 'mastery'));;
+  }
+
+  static async getWeaponChoices(weaponProfs) {      
+    let weapons = await game.packs.get("dnd5e.items").getDocuments({
+      type: "weapon"
+    });
+    return weapons.filter(e => Array.from(weaponProfs).includes(e.identifier))
+      .forEach(e => e.system['mastery'] = weaponMasteries.find(f => f.baseItem === e.identifier)?.mastery ?? [])
+      .forEach(e => e.system['identifier'] = e.identifier);
   }
   
   static async updateMasteries(actor, chosenMasteries, disabledMasteries) {
