@@ -521,9 +521,13 @@ class WeaponMastery_Legacy extends WeaponMastery {
       type: "weapon"
     });
     return weapons.filter(e => Array.from(weaponProfs).includes(e.identifier))
-      .forEach(e => e.system['mastery'] = weaponMasteries.find(f => f.baseItem === e.identifier)?.mastery ?? [])
-      .forEach(e => e.system['identifier'] = e.identifier);
+      .filter(e => e.identifier !== 'net') // net is problematic in mapping 2014 to 2024
+      .forEach(e => {
+        e.system.mastery = weaponMasteries.find(f => f.baseItem === e.identifier).mastery
+        e.system.identifier = e.identifier
+      });
   }
+  //e.system.mastery = weaponMasteries.find(f => f.baseItem === e.identifier)?.mastery ?? []
   
   static async updateMasteries(actor, chosenMasteries, disabledMasteries) {
     if (chosenMasteries) await actor.setFlag('w15ps-compendia', 'mastery', chosenMasteries.filter(e => !disabledMasteries.has(e)));
