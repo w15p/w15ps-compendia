@@ -324,7 +324,7 @@ class WeaponMastery {
       .reduce((totalGrants, { grants }) => totalGrants + grants, 0);
     return [masteryGrants, new Set(), ''];
   }
-  static async getWeaponChoices() { // handles _Free and _Legacy
+  static async getWeaponChoices(weaponProfs) { // handles _Free and _Legacy
     let weapons = await game.packs.get("dnd5e.items").getDocuments({
       type: "weapon",
       system: {
