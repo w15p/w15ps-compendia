@@ -8,7 +8,7 @@
       "discord": "w15p."
     }
   ],
-  "version": "12.4.10",
+  "version": "12.4.11",
   "url": "https://github.com/w15p/w15ps-compendia",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
@@ -45,24 +45,17 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "minimum": "4.1.1",
+          "minimum": "3.3.1",
           "verified": "4.1.2"
         }
       }
     ],
     "requires": [
       {
-        "id": "dnd-players-handbook",
-        "type": "module",
-        "compatibility": {
-          "minimum": "1.2.0",
-          "verified": "1.2.0"
-        }
-      },
-      {
         "id": "dae",
         "type": "module",
         "compatibility": {
+          "minimum": "11.3.68",
           "verified": "12.0.5"
         }
       },
@@ -85,6 +78,7 @@
         "id": "midi-qol",
         "type": "module",
         "compatibility": {
+          "minimum": "11.6.28",
           "verified": "12.4.14"
         }
       },

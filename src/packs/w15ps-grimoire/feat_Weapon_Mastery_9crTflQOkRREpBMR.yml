@@ -111,7 +111,7 @@ flags:
       img: icons/skills/ranged/arrow-flying-spiral-blue.webp
       type: script
       scope: global
-      command: await W15ps.weaponMastery(args, workflow, macroItem);
+      command: await W15ps.weaponMastery.workflow(workflow, macroItem);
       author: iB9D3WCL40PmvK6c
       ownership:
         default: 3
