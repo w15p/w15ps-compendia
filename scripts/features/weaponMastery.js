@@ -13,38 +13,85 @@ import { logMsg } from "../utils.js";
 
 class WeaponMastery {
   // define common elements here
-  usedMastery = {
-    name: "usedMastery",
-    transfer: false,
-    img: "icons/skills/ranged/arrow-flying-spiral-blue.webp",
-    origin: macroItem.uuid,
-    type: "base",
-    changes: [
-      {
-        key: `flags.w15ps-compendia.used${mastery.capitalize()}`,
-        value: true
+  static setUsedMastery (mastery, macroItem) {
+      return {
+      name: "usedMastery",
+      transfer: false,
+      img: "icons/skills/ranged/arrow-flying-spiral-blue.webp",
+      origin: macroItem.uuid,
+      type: "base",
+      changes: [
+        {
+          key: `flags.w15ps-compendia.used${mastery.capitalize()}`,
+          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          value: true,
+          priority: 20
+        }
+      ],
+      disabled: false,
+      duration: {
+        turns: 1
+      },
+      flags: {
+        dae: {
+          showIcon: true
+        }
       }
-    ],
-    disabled: false,
-    duration: {
-      turns: 1
-    },
-    flags: {
-      dae: {
-        showIcon: true
-      }
-    }
-  };
+    };
+  }
 
   static getMasteries(actor) { // handles _PHB and _Free
     return actor.system.traits.weaponProf.mastery.value;
   }
+
   static async getWeapons(masteries) { // handles _Free and _Legacy
     return weaponMasteries.filter(e => masteries.has(e.id));
   }
+
   static async getMasteryProperties(mastery) { // handles _Free and _Legacy
     return `<p>${masteryProperties[mastery]}</p>`;
   }
+
+  static getItemReach(workflow) { // handles _PHB and _Free
+    return workflow.item.system.range.reach
+  }
+
+  static async getClassMasteries(actor) { // handles _FREE and _Legacy
+    let masteryGrants = Object.entries(actor.classes)
+      .map(([i, d]) => (classMasteries.find((c) => c.id === i)?.masteries ?? []).filter((t) => t.level <= d.system.levels))
+      .flat(2)
+      .reduce((totalGrants, { grants }) => totalGrants + grants, 0);
+    return [masteryGrants, new Set(), ''];
+  }
+
+  static async getWeaponChoices(weaponProfs) { // handles _Free    
+    let weapons = await game.packs.get("dnd5e.items").getDocuments({
+      type: "weapon",
+      system: {
+        identifier__in: Array.from(weaponProfs)
+      }
+    });
+    return weapons.forEach(e => e.system.mastery = weaponMasteries.find(f => f.baseItem === e.system.identifier).mastery);
+  }
+
+  static async updateMasteries(actor, chosenMasteries, disabledMasteries) {  // handles _PHB and _Free
+    if (chosenMasteries) await actor.update({ "system.traits.weaponProf.mastery.value": chosenMasteries.filter(e => !disabledMasteries.has(e)) });
+  }
+  
+  static getCleaveItem(workflow) { // handles _PHB and _Free
+    let cleaveData = workflow.item.toObject();
+    cleaveData.system.activities[workflow.activity.id].damage.parts.push({
+      custom: {
+          enabled: true,
+          formula: `${workflow.item.system.damage.base.number}d${workflow.item.system.damage.base.denomination} + @${negMod} + ${workflow.item.system.magicalBonus}`
+      },
+      types: [
+          workflow.defaultDamageType
+      ]
+    });
+    return new CONFIG.Item.documentClass(cleaveData, { parent: workflow.actor });
+  }
+
   static async workflow(workflow, macroItem) {
     const feature = 'Weapon Mastery';
     const masteries = this.getMasteries(workflow.actor);
@@ -55,22 +102,15 @@ class WeaponMastery {
     if (workflow.macroPass !== 'postAttackRollComplete') workflow.actor.unsetFlag('w15ps-compendia', 'tacticalMastery');
     const mod = (workflow.item.abilityMod) ? // handle the topple call
       workflow.actor.system.abilities[workflow.item.abilityMod].mod :
-      null;
+      0;
     switch (true) {
-      case (mastery === 'cleave' && !workflow.actor.getFlag('w15ps-compendia', `used${mastery.capitalize()}`)):
-        if (workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') === 'cleave' && workflow.macroPass === 'postAttackRollComplete') {
-          if (workflow.hitTargets.size) {
-            let negMod = (mod < 0) ? mod : 0; // only include modifier if negative
-            let cleaveRoll = await new CONFIG.Dice.DamageRoll(`${workflow.item.labels.damage} + ${workflow.item.system.magicalBonus} + ${negMod}`, 
-              {}, { type: workflow.item.labels.damageTypes, properties: [...workflow.item.system.properties] }).evaluate();
-            await new MidiQOL.DamageOnlyWorkflow(workflow.actor, workflow.token, null, null, [masteryTarget], cleaveRoll, { itemCardUuid: workflow.itemCardUuid });
-          }
-          workflow.actor.unsetFlag('w15ps-compendia', 'weaponMasteryUsed');
-          await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [this.usedMastery] });
+      case (mastery === 'cleave' && workflow.macroPass === 'postActiveEffects' && !workflow.actor.getFlag('w15ps-compendia', `used${mastery.capitalize()}`)):
+        if (workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') === 'cleave') {
+          await workflow.actor.unsetFlag('w15ps-compendia', 'weaponMasteryUsed');
           return;
-        } else if (workflow.macroPass !== 'postAttackRollComplete') {
+        } else {
           if (!workflow.hitTargets.size || workflow.targets.size !== 1) return;
-          const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.token, workflow.item.system.range.reach,
+          const validTargets = MidiQOL.findNearby(['hostile', 'neutral'], workflow.token, this.getItemReach(workflow),
             { includeIncapacitated: false, isSeen: true, includeToken: false, relative: false });
           const cleaveTargets = MidiQOL.findNearby(['hostile', 'neutral'], masteryTarget, 5,
             { includeIncapacitated: false, includeToken: false, relative: false }).filter(e => validTargets.includes(e));
@@ -85,18 +125,27 @@ class WeaponMastery {
               }
             })
           });
-          let cleaveData = workflow.item.toObject();
-          let cleaveItem = new CONFIG.Item.documentClass(cleaveData, { parent: workflow.actor });
+          let negMod = (mod < 0) ? mod : 0; // only include modifier if negative
+          let cleaveItem = this.getCleaveItem(workflow, negMod)
+          let midiARD = MidiQOL.configSettings().autoRollDamage;
+          if (!['always', 'onHit'].includes(midiARD)) midiARD = 'onHit'; // taken from CPR cleave implementation
           let cleaveOptions = {
-            targetUuids: [cleaveChoice]
+            targetUuids: [cleaveChoice],
+            configureDialog: false,
+            workflowOptions: {
+              autoRollDamage: midiARD,
+              autoFastDamage: true,
+              autoRollAttack: true
+            }
           };
-          await workflow.actor.setFlag('w15ps-compendia', 'weaponMasteryUsed', 'cleave');
+          await workflow.actor.setFlag('w15ps-compendia', 'weaponMasteryUsed', 'cleave'); // this flag must be set before the completeItemUse call
           await MidiQOL.completeItemUse(cleaveItem, {}, cleaveOptions);
+          await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [usedMastery] }); // turn tracker
         }
         break;
 
       case (mastery === 'graze' && workflow.macroPass === 'postAttackRollComplete'):
-        if (workflow.hitTargets.size || workflow.targets.size !== 1) return;
+        if (workflow.hitTargets.size || workflow.targets.size !== 1 || mod <= 0) return;
         const itemData = {
           name: `${feature} (Graze)`,
           type: "feat",
@@ -115,9 +164,9 @@ class WeaponMastery {
         await ChatMessage.create({
           speaker: ChatMessage.getSpeaker({ actor: workflow.actor }),
           flavor: 'Weapon Mastery: Nick',
-          content: this.getMasteryProperties(mastery)
+          content: await this.getMasteryProperties(mastery)
         })
-        await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [usedMastery] });
+        await MidiQOL.createEffects({ actorUuid: workflow.actor.uuid, effects: [this.setUsedMastery(mastery, macroItem)] });
         break;
 
       case (mastery === 'push' && workflow.macroPass !== 'postAttackRollComplete'): // adapted from thatlonelybugbear's code on MISC - only supports `game.canvas.grid.diagonals = 0`
@@ -278,7 +327,6 @@ class WeaponMastery {
           targetUuids: [masteryTarget.document.uuid]
         };
         const toppleWorkflow = await MidiQOL.completeItemUse(toppleItem, {}, toppleOptions);
-        console.log(toppleWorkflow);
         break;
 
       case (mastery === 'vex' && workflow.macroPass !== 'postAttackRollComplete'):
@@ -317,25 +365,6 @@ class WeaponMastery {
     }
   }
 
-  static async getClassMasteries(actor) { // handles _FREE and _Legacy
-    let masteryGrants = Object.entries(actor.classes)
-      .map(([i, d]) => (classMasteries.find((c) => c.id === i)?.masteries ?? []).filter((t) => t.level <= d.system.levels))
-      .flat(2)
-      .reduce((totalGrants, { grants }) => totalGrants + grants, 0);
-    return [masteryGrants, new Set(), ''];
-  }
-  static async getWeaponChoices(weaponProfs) { // handles _Free    
-    let weapons = await game.packs.get("dnd5e.items").getDocuments({
-      type: "weapon",
-      system: {
-        identifier__in: Array.from(weaponProfs)
-      }
-    });
-    return weapons.forEach(e => e.system.mastery = weaponMasteries.find(f => f.baseItem === e.system.identifier).mastery);
-  }
-  static async updateMasteries(actor, chosenMasteries, disabledMasteries) {  // handles _PHB and _Free
-    if (chosenMasteries) await actor.update({ "system.traits.weaponProf.mastery.value": chosenMasteries.filter(e => !disabledMasteries.has(e)) });
-  }
   static async choose(actor) {
     const feature = "Choose Weapon Masteries";
     // check for whether and how many masteries the actor has
@@ -513,21 +542,33 @@ class WeaponMastery_Legacy extends WeaponMastery {
     // this flag will need to be manually populated and will need to be made clear in the ReadMe
     (actor.getFlag('w15ps-compendia', 'mastery') === undefined) ??
       logMsg(`Weapon Masteries need to be stored in an actor flag, eg: actor.setFlag('w15ps-compendia, 'mastery', ['shortsword', 'dagger']);`, feature);
-    return new Set(actor.getFlag('w15ps-compendia', 'mastery'));;
+    //console.log(actor.getFlag('w15ps-compendia', 'mastery'));
+    return new Set(actor.getFlag('w15ps-compendia', 'mastery'));
+  }
+
+  static getItemReach(workflow) {
+    return workflow.item.system.range.value
+  }
+
+  static getCleaveItem(workflow) {
+    let cleaveData = workflow.item.toObject();
+    cleaveData.system.damage.parts[0][0] = `${workflow.item.labels.damage.split(' ')[0]} + ${negMod}`;
+    return new CONFIG.Item.documentClass(cleaveData, { parent: workflow.actor });
   }
 
   static async getWeaponChoices(weaponProfs) {      
     let weapons = await game.packs.get("dnd5e.items").getDocuments({
       type: "weapon"
     });
-    return weapons.filter(e => Array.from(weaponProfs).includes(e.identifier))
+    weapons = weapons.filter(e => Array.from(weaponProfs).includes(e.identifier))
       .filter(e => e.identifier !== 'net') // net is problematic in mapping 2014 to 2024
-      .forEach(e => {
+    weapons.forEach(e => {
         e.system.mastery = weaponMasteries.find(f => f.baseItem === e.identifier).mastery
         e.system.identifier = e.identifier
       });
+    //console.log(weapons)
+    return weapons;
   }
-  //e.system.mastery = weaponMasteries.find(f => f.baseItem === e.identifier)?.mastery ?? []
   
   static async updateMasteries(actor, chosenMasteries, disabledMasteries) {
     if (chosenMasteries) await actor.setFlag('w15ps-compendia', 'mastery', chosenMasteries.filter(e => !disabledMasteries.has(e)));

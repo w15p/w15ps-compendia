@@ -3,14 +3,16 @@ The Fighter level 9 Tactical Master feature is provided in the 2024 free rules o
 */
 
 export async function tacticalMaster(workflow) {
+  console.log(workflow.actor)
   if (!game.settings.get('w15ps-compendia', 'tactical_master_config') ||
     workflow.actor.getFlag('w15ps-compendia', 'weaponMasteryUsed') ||
-    !(workflow.actor.system.traits.weaponProf.mastery.value.has(workflow.item.system.identifier) ||
-      workflow.actor.system.traits.weaponProf.mastery.value.has(workflow.item.system.type.baseItem))) return;
+    (Number(game.system.version.split('.')[0]) === 4 && // only make this check in dnd5e v4
+      !(workflow.actor.system.traits.weaponProf.mastery?.value.includes(workflow.item.system.identifier) ||
+        workflow.actor.system.traits.weaponProf.mastery?.value.includes(workflow.item.system.type.baseItem)))) return;
 
   // check that actor has bonus masteries but fall back to homebrew (non-PHB2024) if not
   // workflow.item.system.masteryOptions would also work and could maybe be incorporated directly into the chatCard (though that would have the same issues as seen with Graze and non-privileged users)
-  const tacticalChoices = (workflow.actor.system.traits.weaponProf.mastery?.bonus) ? 
+  const tacticalChoices = (Number(game.system.version.split('.')[0]) === 4) ? 
     Array.from(workflow.actor.system.traits.weaponProf.mastery.bonus) : 
     ['push', 'sap', 'slow']; // part of the free rules referenced above
   const tacticalChoice = await foundry.applications.api.DialogV2.wait({
