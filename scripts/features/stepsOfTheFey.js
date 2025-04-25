@@ -138,6 +138,7 @@ export let stepsOfTheFey = {
   name: 'Steps of the Fey',
   identifier: 'stepsOfTheFey',
   version: '0.12.64',
+  rules: 'modern',
   midi: {
     item: [
       {

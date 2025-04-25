@@ -46,6 +46,7 @@ export let feyTrance = {
   name: 'Trance',
   identifier: 'feyTrance',
   version: '0.12.64',
+  rules: 'modern',
   midi: {
     item: [
       {

@@ -60,6 +60,7 @@ export let layOnHands = {
   name: 'Lay on Hands',
   identifier: 'layOnHands',
   version: '0.12.23',
+  rules: 'modern',
   midi: {
     item: [
       {

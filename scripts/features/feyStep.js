@@ -128,6 +128,7 @@ export let feyStep = {
     name: 'Fey Step',
     identifier: 'eladrinFeyStep',
     version: '0.12.64',
+    rules: 'modern',
     midi: {
         item: [
             {

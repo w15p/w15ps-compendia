@@ -624,6 +624,7 @@ export let sneakAttack = {
   name: "Sneak Attack",
   version: "0.12.41",
   identifier: "sneakAttack",
+  rules: 'modern',
   midi: {
     actor: [
       {

@@ -67,6 +67,7 @@ export let changeSeason = {
   name: 'Change Season',
   identifier: 'changeSeason',
   version: '0.12.64',
+  rules: 'modern',
   midi: {
     item: [
       {

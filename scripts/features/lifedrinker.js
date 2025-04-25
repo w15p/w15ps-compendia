@@ -44,6 +44,7 @@ export let lifedrinker = {
   name: 'Eldritch Invocations: Lifedrinker',
   identifier: 'lifedrinker',
   version: '0.12.70',
+  rules: 'modern',
   midi: {
     actor: [
       {
